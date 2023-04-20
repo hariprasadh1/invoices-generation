@@ -21,29 +21,29 @@ for filepath in filepaths:
         col = ' '.join([word.capitalize() for word in col.split('_')])
         pdf.set_font(family='Times', size=10, style='B')
         if col == "Product Name":
-            pdf.cell(70, 10, col, 1)
+            pdf.cell(50, 10, col, 1)
         else:
-            pdf.cell(30, 10, col, 1)
+            pdf.cell(35, 10, col, 1)
 
     pdf.ln()
     for index, data in df.iterrows():
         pdf.set_font(family='Times', size=10, style='')
-        pdf.cell(30, 10, str(data["product_id"]), 1)
-        pdf.cell(70, 10, str(data["product_name"]), 1)
-        pdf.cell(30, 10, str(data["amount_purchased"]), 1)
-        pdf.cell(30, 10, str(data["price_per_unit"]), 1)
-        pdf.cell(30, 10, str(data["total_price"]), 1)
+        pdf.cell(35, 10, str(data["product_id"]), 1)
+        pdf.cell(50, 10, str(data["product_name"]), 1)
+        pdf.cell(35, 10, str(data["amount_purchased"]), 1)
+        pdf.cell(35, 10, str(data["price_per_unit"]), 1)
+        pdf.cell(35, 10, str(data["total_price"]), 1)
         pdf.ln()
 
     for i in range(len(df.columns) - 1):
         if i == 1:
-            pdf.cell(70, 10, "", 1)
+            pdf.cell(50, 10, "", 1)
         else:
-            pdf.cell(30, 10, "", 1)
+            pdf.cell(35, 10, "", 1)
 
     total_price = sum(df["total_price"])
 
-    pdf.cell(30, 10, str(total_price), 1)
+    pdf.cell(35, 10, str(total_price), 1)
     pdf.ln(20)
 
     pdf.set_font(family='Times', style='B', size=20)
